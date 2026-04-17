@@ -65,17 +65,6 @@ class AbandonCartPromoConsumer
             );
 
             $this->notificationDispatcher->dispatch($notificationData);
-
-            $this->logger->info(
-                'Abandoned cart promotion message processed successfully.',
-                [
-                    'quote_id' => $quoteId,
-                    'customer_id' => $customerId,
-                    'store_id' => $storeId,
-                    'rule_id' => (int) $rule->getRuleId(),
-                    'coupon_code' => $couponCode,
-                ]
-            );
         } catch (\Throwable $exception) {
             $this->logger->error(
                 'Failed to process abandoned cart promotion message.',
