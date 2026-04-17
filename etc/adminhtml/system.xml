@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="hmh_abandoncartpromotion" translate="label" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Abandon Cart Promotion</label>
+            <tab>hmh</tab>
+            <resource>Hmh_Core::base</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="abandoned_before" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Abandoned Before</label>
+                    <comment>Check cart abandoned x hours before.</comment>
+                    <source_model>Hmh\AbandonCartPromotion\Model\Config\Source\AbandonedBefore</source_model>
+                </field>
+                <field id="cron_schedule" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cron Schedule</label>
+                    <comment>Fixed daily time used to run the abandoned basket check job.</comment>
+                    <source_model>Hmh\AbandonCartPromotion\Model\Config\Source\CronSchedule</source_model>
+                </field>
+            </group>
+            <group id="communication" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Communication</label>
+                <field id="method" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Communication Method</label>
+                    <comment>Select the preferred communication channel for delivering customer promotions</comment>
+                    <source_model>Hmh\AbandonCartPromotion\Model\Config\Source\Communication</source_model>
+                </field>
+            </group>
+            <group id="discount" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Discount setting</label>
+                <comment>Discount offered to customer with abandoned basket</comment>
+                <field id="type" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Discount Type</label>
+                    <source_model>Hmh\AbandonCartPromotion\Model\Config\Source\CartPromotionRules</source_model>
+                </field>
+                <field id="threshold" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Offer Discount When Cart Total Over</label>
+                    <comment>Minimum cart subtotal required before the discount offer is sent.</comment>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

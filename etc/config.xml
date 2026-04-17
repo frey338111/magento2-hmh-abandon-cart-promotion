@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/config.xsd">
+    <default>
+        <hmh_abandoncartpromotion>
+            <general>
+                <enabled>0</enabled>
+                <abandoned_before>24</abandoned_before>
+                <cron_schedule>0 1 * * *</cron_schedule>
+            </general>
+        </hmh_abandoncartpromotion>
+    </default>
+</config>

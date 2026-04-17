@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="hmh_abandoncartpromotion_process" xsi:type="object">
+                    Hmh\AbandonCartPromotion\Console\Command\ProcessAbandonedCartCommand
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Hmh\AbandonCartPromotion\Model\Notification\NotificationDispatcher">
+        <arguments>
+            <argument name="notificationStrategies" xsi:type="array">
+                <item name="internal_message" xsi:type="object">Hmh\AbandonCartPromotion\Model\Notification\Strategy\InternalMessageNotificationStrategy</item>
+                <item name="email" xsi:type="object">Hmh\AbandonCartPromotion\Model\Notification\Strategy\EmailNotificationStrategy</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Hmh\AbandonCartPromotion\Model\Config\Source\Communication">
+        <arguments>
+            <argument name="options" xsi:type="array">
+                <item name="email" xsi:type="array">
+                    <item name="value" xsi:type="string">email</item>
+                    <item name="label" xsi:type="string">Email</item>
+                </item>
+                <item name="internal_message" xsi:type="array">
+                    <item name="value" xsi:type="string">internal_message</item>
+                    <item name="label" xsi:type="string">Internal Message</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

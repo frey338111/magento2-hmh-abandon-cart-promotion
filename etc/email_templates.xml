@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="hmh_abandon_cart_promo_email_template"
+              label="Abandoned Cart Promotion Email"
+              file="abandon_cart_promo.html"
+              type="html"
+              module="Hmh_AbandonCartPromotion"
+              area="frontend"/>
+</config>

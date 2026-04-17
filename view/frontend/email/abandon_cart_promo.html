@@ -1,0 +1,15 @@
+<!--@subject {{trans "Complete your purchase with a thank-you discount"}} @-->
+<!--@vars {
+"var coupon_code":"Coupon Code",
+"var quote_id":"Quote Id"
+} @-->
+{{template config_path="design/email/header_template"}}
+<p>{{trans "We noticed you left a few items in your basket — they’re still waiting for you!"}}</p>
+<p>{{trans "To help you complete your purchase, here’s a small thank-you discount:"}}</p>
+<p><strong>{{trans "Promo Code: %coupon_code" coupon_code=$coupon_code}}</strong></p>
+<p>{{trans "Simply return to your basket and apply the code at checkout:"}}<br><a href="{{store url=''}}">{{store url=''}}</a></p>
+<p>{{trans "If you had any issues during checkout or need assistance, feel free to reply to this email — we’re here to help."}}</p>
+<p>{{trans "Don’t miss out — your items may sell out soon."}}</p>
+<p>{{trans "Best regards,"}}</p>
+<p>{{trans "Sales Team"}}</p>
+{{template config_path="design/email/footer_template"}}
